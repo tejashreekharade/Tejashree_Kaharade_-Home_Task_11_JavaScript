@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Epam-Task : Login page</title>
+		<meta charset="utf-8" />
+		<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" /> 
+		<link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Mukta:wght@600&display=swap" rel="stylesheet">
+		<style type="text/css">
+		
+			.div1
+			{
+				margin: auto;
+				background-color:#76CDD8;
+				padding: 16px;
+				height:500px;
+				width:500px;
+				border-style: solid;
+				
+			}
+			h1 
+			{
+				text-align: center;
+				background-color : powderblue;
+			}
+			input[type=text], select 
+			{
+				width: 100%;
+				padding: 12px 20px;
+				margin: 5px 0;
+				display: inline-block;
+				border: 1px solid #ccc;
+				border-radius: 4px;
+				box-sizing: border-box;
+				color:#8d9196;
+			}
+			input[type=password], select 
+			{
+				width: 100%;
+				padding: 12px 20px;
+				margin: 5px 0;
+				display: inline-block;
+				border: 1px solid #ccc;
+				border-radius: 4px;
+				box-sizing: border-box;
+				color:#8d9196;
+			}
+			input[type=submit]
+			{
+				width:400px;
+				height:40px;
+				padding:0px;
+				border:0px;
+				border-radius:5px;
+			}
+			input[type=submit]:hover
+			{
+				background-color:#32a85a;
+				width:400px;
+				height:40px;
+				padding:0px;
+				border:0px;
+				border-radius:5px;
+			}
+			.login
+			{
+				background-color:#fff;
+				color:#123;
+				font-family: 'Mukta', sans-serif;
+				font-size:18px;
+				position:relative;
+				left:50px;
+				top:5px;
+				padding: 16px 20px;
+				margin: 8px 0;
+				border: none;
+				cursor: pointer;
+				width: 100%;
+			}
+			
+		</style>
+	</head>
+	<script type = "text/javascript" >  
+		function validateform()
+		{  
+			var email = document.login_form.email.value;  
+			var password = document.login_form.password.value;			
+			var atposition = email.indexOf("@");  
+			var dotposition = email.lastIndexOf("."); 
+			if (password==null || password=="")
+			{  
+				alert("Please enter your password");  
+				return false;  
+			} 
+			if (atposition < 1 || dotposition < atposition + 2 || dotposition + 2 >= email.length)
+			{  
+				alert("Please enter a valid e-mail address");   
+				return false;
+			}
+			if(password.length < 6 ) 
+			{  
+				alert("Password must be at least 6 characters long.");   
+				return false;				
+			}  			
+		}  
+	</script>  
+	<body>
+	<form name="login_form" method="post" action="success2.html" onsubmit="return validateform()" >  
+		<div class="div1">
+			<h1> Login Form </h1>
+			<h3>Email id: </h3><input type="text" name="email" placeholder="mail@example.com">
+			<h3>Password: </h3><input type="password" name="password" placeholder="password" >
+			<input class="login" type="submit" value="Login" >
+		</div>
+	</form>
+	</body>
+</html>

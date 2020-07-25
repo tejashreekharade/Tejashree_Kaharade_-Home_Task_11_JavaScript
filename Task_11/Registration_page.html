@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Epam-Task : Registration page</title>
+		<meta charset="utf-8" />
+		<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" /> 
+		<link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Mukta:wght@600&display=swap" rel="stylesheet">
+		<style type="text/css">
+		
+			.div1
+			{
+				margin: auto;
+				background-color:#76CDD8;
+				padding: 16px;
+				height:900px;
+				width:500px;
+				border-style: solid;
+				
+			}
+			h1 
+			{
+				text-align: center;
+				background-color : powderblue;
+			}
+			input[type=text], select 
+			{
+				width: 100%;
+				padding: 12px 20px;
+				margin: 5px 0;
+				display: inline-block;
+				border: 1px solid #ccc;
+				border-radius: 4px;
+				box-sizing: border-box;
+				color:#8d9196;
+			}
+			input[type=password], select 
+			{
+				width: 100%;
+				padding: 12px 20px;
+				margin: 5px 0;
+				display: inline-block;
+				border: 1px solid #ccc;
+				border-radius: 4px;
+				box-sizing: border-box;
+				color:#8d9196;
+			}
+			input[type=submit]
+			{
+				width:400px;
+				height:40px;
+				padding:0px;
+				border:0px;
+				border-radius:5px;
+			}
+			input[type=submit]:hover
+			{
+				background-color:#32a85a;
+				width:400px;
+				height:40px;
+				padding:0px;
+				border:0px;
+				border-radius:5px;
+			}
+			.register
+			{
+				background-color:#fff;
+				color:#123;
+				font-family: 'Mukta', sans-serif;
+				font-size:18px;
+				position:relative;
+				left:50px;
+				top:5px;
+				padding: 16px 20px;
+				margin: 8px 0;
+				border: none;
+				cursor: pointer;
+				width: 100%;
+			}
+			
+		</style>
+	</head>
+	<script type = "text/javascript" >  
+		function validateform()
+		{  
+			var fname = document.registration_form.fname.value;
+			var lname = document.registration_form.lname.value;
+			var email = document.registration_form.email.value;  
+			var password1 = document.registration_form.password1.value;
+			var password2 = document.registration_form.password2.value;			
+			var atposition = email.indexOf("@");  
+			var dotposition = email.lastIndexOf("."); 
+			if (fname==null || fname=="")
+			{  
+				alert("Please enter your first name");  
+				return false;  
+			}
+			if (lname==null || lname=="")
+			{  
+				alert("Please enter your last name");  
+				return false;  
+			}
+			if (password1==null || password1=="")
+			{  
+				alert("Please enter your password");  
+				return false;  
+			}
+			if (password2==null || password2=="")
+			{  
+				alert("Please re-type your password");  
+				return false;  
+			}
+			if(password1 != password2)
+			{   
+				alert("password mismatch");  
+				return false;
+			}  
+			if (atposition < 1 || dotposition < atposition + 2 || dotposition + 2 >= email.length)
+			{  
+				alert("Please enter a valid e-mail address");   
+				return false;
+			}
+			if(password1.length < 6 || password2.length< 6) 
+			{  
+				alert("Password must be at least 6 characters long.");   
+				return false;				
+			}  			
+		}  
+	</script>  
+	<body>
+	<form name="registration_form" method="post" action="success1.html" onsubmit="return validateform()" >  
+		<div class="div1">
+			<h1> Registration Form </h1>
+			<h4>First Name: </h4><input type="text" name="fname" placeholder="first name">
+			<h4>Last Name: </h4><input type="text" name="lname" placeholder="last name">
+			<h4>Date of birth: </h4><input type="date" name="dob">
+			<h4>Select Gender:</h4>
+			<input type="radio" id="male" name="gender" value="male">
+			<label for="male">Male</label><br>
+			<input type="radio" id="female" name="gender" value="female">
+			<label for="female">Female</label>
+			<br>
+			<h4>Email id: </h4><input type="text" name="email" placeholder="mail@example.com">
+			<h4>Password: </h4><input type="password" name="password1" placeholder="password" >
+			<h4>Retype Password: </h4><input type="password" name="password2" placeholder="password" >
+			<input class="register" type="submit" value="Register" >
+		</div>
+	</form>
+	</body>
+</html>
